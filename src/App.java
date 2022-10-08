@@ -14,8 +14,14 @@ public class App extends Application { // 1: Extends Application
         primaryStage.setScene(scene); // 5. add scene to the stage
 
         primaryStage.show(); // 6. show the stage/window. 
+
+        // Add multiple stage 
+        Stage stage = new Stage();
+        stage.setScene(new Scene(new Button("Second stage"), 200, 250));
+        stage.setTitle("Second stage");
+        stage.show();
     }
-    
+
     public static void main(String[] args) throws Exception {
         launch(args);
     }
