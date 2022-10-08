@@ -1,25 +1,19 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class App extends Application { // 1: Extends Application
+public class App extends Application { 
     @Override
-    public void start(Stage primaryStage){ // 2. Override start (JVM creates stage object and calls start method)
-
-        Button btnOK = new Button("OK"); // 3. Create nodes (like button)
+    public void start(Stage primaryStage) { 
+        StackPane pane = new StackPane(); // Create Parent Object
+        pane.getChildren().add(new Button("OK")); // add node to the pane(Parent)
+        Scene scene = new Scene(pane, 200, 50); // add pane to the scene
+        primaryStage.setTitle("Button in a pane");
+        primaryStage.setScene(scene);
+        primaryStage.show();   
         
-        Scene scene = new Scene(btnOK, 200, 250); // 4. create scene and place node to the scene
-        
-        primaryStage.setScene(scene); // 5. add scene to the stage
-
-        primaryStage.show(); // 6. show the stage/window. 
-
-        // Add multiple stage 
-        Stage stage = new Stage();
-        stage.setScene(new Scene(new Button("Second stage"), 200, 250));
-        stage.setTitle("Second stage");
-        stage.show();
     }
 
     public static void main(String[] args) throws Exception {
