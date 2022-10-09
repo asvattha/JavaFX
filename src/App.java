@@ -17,9 +17,13 @@ public class App extends Application {
         circle.setFill(Color.WHITE);
         circle.setStroke(Color.RED);
 
+        StackPane stackPane = new StackPane();
+
         //Pane stackPane = new StackPane(circle);
         // or
-        Pane stackPane = new StackPane();
+        circle.centerXProperty().bind(stackPane.widthProperty().divide(2)); // binding center with pane width
+        circle.radiusProperty().bind(stackPane.widthProperty().divide(4)); // binding radius with pane width
+        
         stackPane.getChildren().add(circle);
 
         Scene scene = new Scene(stackPane, 200, 200);
