@@ -31,6 +31,13 @@ public class App extends Application {
         primaryStage.setScene(scene);
 
         primaryStage.show();
+
+        Stage otherStage = new Stage();
+        Circle c2 = new Circle(100, 100, 50);
+        StackPane sp = new StackPane(c2);
+        c2.radiusProperty().bind(stackPane.widthProperty().divide(2));
+        otherStage.setScene(new Scene(sp, 500, 500));
+        otherStage.show();
     }
 
     public static void main(String[] args) throws Exception {
